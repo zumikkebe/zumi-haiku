@@ -1,0 +1,139 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #369;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    overflow: visible;
+    padding: 32px;
+}
+
+header {
+    background: #036;
+    color: white;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #000 1px solid;
+}
+
+header h1 {
+    text-align: center;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 20px;
+    padding: 10px;
+    position: relative;
+}
+
+.gallery-section {
+    background-color: white;
+    padding: 10px;
+    position: relative;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.gallery-title {
+    display: inline-block;
+    background-color: #FC0;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.gallery-item {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+    display: inline-block;
+}
+
+.gallery-item .tooltip {
+    visibility: hidden;
+    background-color: #fc0;
+    color: black;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 4px;
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 4px;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+.gallery-item:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item .thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.gallery-item .full-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 2;
+}
+
+.gallery-item:hover {
+    transform: scale(4);
+    z-index: 100;
+    position: relative;
+}
+
+.gallery-item:hover .thumbnail {
+    opacity: 0;
+}
+
+.gallery-item:hover .full-image {
+    opacity: 1;
+}
+
+@media (max-width: 992px) {
+    .gallery {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
